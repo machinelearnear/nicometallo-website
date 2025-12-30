@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Icon } from '@/components/icons';
@@ -13,8 +14,11 @@ interface ProjectsProps {
 }
 
 export default function Projects({ projects }: ProjectsProps) {
-  const displayProjects = projects.slice(0, GRID_LIMIT);
+  const [showMore, setShowMore] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
+  
+  const firstSix = projects.slice(0, GRID_LIMIT);
+  const displayProjects = showMore ? projects : firstSix;
 
   return (
     <section className="flex flex-col items-center py-[100px]">
@@ -105,6 +109,13 @@ export default function Projects({ projects }: ProjectsProps) {
           );
         })}
       </ul>
+
+      <button 
+        className="more-button button mt-20 mx-auto"
+        onClick={() => setShowMore(!showMore)}
+      >
+        Show {showMore ? 'Less' : 'More'}
+      </button>
     </section>
   );
 }

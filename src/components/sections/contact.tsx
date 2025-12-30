@@ -11,7 +11,7 @@ export default function Contact() {
   return (
     <section id="contact" className="max-w-[600px] mx-auto mb-[100px] text-center">
       <motion.h2
-        className="mb-5 text-green font-mono text-[clamp(var(--fz-md),3vw,var(--fz-xl))] font-normal"
+        className="numbered-heading overline mb-5 text-green font-mono text-[clamp(var(--fz-md),3vw,var(--fz-xl))] font-normal"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

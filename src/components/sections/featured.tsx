@@ -71,6 +71,11 @@ export default function Featured({ projects }: FeaturedProps) {
                 )}
 
                 <div className={`flex items-center relative mt-2.5 text-lightest-slate ${isOdd ? 'justify-start -ml-2.5' : 'justify-end -mr-2.5'}`}>
+                  {cta && (
+                    <a href={cta} aria-label="Course Link" className="cta m-2.5">
+                      Learn More
+                    </a>
+                  )}
                   {github && (
                     <a href={github} aria-label="GitHub Link" className="p-2.5 hover:text-green transition-colors">
                       <Icon name="GitHub" />

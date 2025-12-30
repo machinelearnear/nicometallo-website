@@ -20,6 +20,15 @@ const items = [
     digital experiences. Currently, I&apos;m focused on building accessible, human-centered products
     at <a href="https://upstatement.com/" target="_blank" rel="noreferrer" className="text-green hover:underline decoration-green/50 underline-offset-4 transition-all">Upstatement</a>.
   </p>,
+  <a
+    key="5"
+    className="email-link button mt-[50px]"
+    href="https://www.newline.co/courses/build-a-spotify-connected-app"
+    target="_blank"
+    rel="noreferrer"
+  >
+    Check out my course!
+  </a>,
 ];
 
 export default function Hero() {

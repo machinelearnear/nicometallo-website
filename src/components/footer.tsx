@@ -42,7 +42,7 @@ export default function Footer() {
   return (
     <footer className="flex flex-col items-center justify-center min-h-[70px] py-4 text-center">
       {/* Mobile Social Links */}
-      <div className="hidden md:block w-full max-w-[270px] mb-3 text-light-slate">
+      <div className="md:hidden w-full max-w-[270px] mb-2.5 text-light-slate">
         <ul className="flex justify-between items-center list-none p-0 m-0">
           {socialMedia.map(({ name, url }, i) => (
             <li key={i}>
@@ -65,12 +65,12 @@ export default function Footer() {
           <div className="mt-1">Design by Brittany Chiang</div>
 
           {typeof githubInfo.stars === 'number' && typeof githubInfo.forks === 'number' && (
-            <div className="mt-2 flex items-center gap-3">
-              <span className="flex items-center">
+            <div className="github-stats mt-2.5">
+              <span className="inline-flex items-center mx-1.5">
                 <Icon name="Star" />
                 <span className="ml-1">{githubInfo.stars.toLocaleString()}</span>
               </span>
-              <span className="flex items-center">
+              <span className="inline-flex items-center mx-1.5">
                 <Icon name="Fork" />
                 <span className="ml-1">{githubInfo.forks.toLocaleString()}</span>
               </span>
