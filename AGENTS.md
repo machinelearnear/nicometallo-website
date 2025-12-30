@@ -543,12 +543,12 @@ interface Post {
 - [x] Test responsive behavior at all breakpoints
 
 ### Phase 6: Additional Pages
-- [ ] Create /archive page (full project list)
-- [ ] Create /pensieve page (blog listing)
-- [ ] Create /pensieve/tags page (tag cloud)
-- [ ] Create /pensieve/tags/[tag] page
-- [ ] Create /[...slug] page (blog post detail)
-- [ ] Create 404 page
+- [x] Create /archive page (full project list)
+- [x] Create /pensieve page (blog listing)
+- [x] Create /pensieve/tags page (tag cloud)
+- [x] Create /pensieve/tags/[tag] page
+- [x] Create /[...slug] page (blog post detail)
+- [x] Create 404 page
 
 ### Phase 7: Polish & Verification
 - [ ] Verify all animations work
@@ -563,8 +563,8 @@ interface Post {
 ## Session Handoff Notes
 
 > **Last Updated**: 2025-12-30
-> **Last Phase Completed**: Phase 5 (Layout Integration) - Complete
-> **Current Status**: Homepage fully integrated with all sections. Build passing.
+> **Last Phase Completed**: Phase 6 (Additional Pages) - Complete
+> **Current Status**: All pages implemented. Build passes. Ready for Phase 7 polish.
 >
 > **IMPORTANT**: Use Beads for progress tracking. Run `bd ready` to see what needs doing.
 
@@ -641,21 +641,33 @@ bd sync
    - Build generates static pages for / and /_not-found successfully
    - Final build output:
      - Route (app)    Size    First Load JS
-     - ○ /           54.5 kB  157 kB
-     - ○ /_not-found  992 B   103 kB
+      - ○ /           54.5 kB  157 kB
+      - ○ /_not-found  992 B   103 kB
+
+7. **Phase 6 Complete**:
+   - Created /archive/page.tsx - Full project list using `getAllProjects(true)`
+   - Created /pensieve/page.tsx - Blog listing using `getAllPosts()`
+   - Created /pensieve/tags/page.tsx - Tag cloud with post counts using `getAllTags()`
+   - Created /pensieve/tags/[tag]/page.tsx - Posts filtered by tag using `getPostsByTag()`
+   - Created /[...slug]/page.tsx - Blog post detail using `getPostBySlug()`
+   - Created /not-found.tsx - Custom 404 page
+   - Build generates all static pages successfully
 
 ### What's Next
 
-**Continue with Phase 6: Additional Pages**
+**Phase 7: Polish & Verification**
 
-1. Create `/archive/page.tsx` - Full project list (uses `getAllProjects(true)`)
-2. Create `/pensieve/page.tsx` - Blog listing (uses `getAllPosts()`)
-3. Create `/pensieve/tags/page.tsx` - Tag cloud (uses `getAllTags()`)
-4. Create `/pensieve/tags/[tag]/page.tsx` - Posts filtered by tag (uses `getPostsByTag()`)
-5. Create `/[...slug]/page.tsx` - Blog post detail (uses `getPostBySlug()`)
-6. Create `not-found.tsx` - 404 page
+1. Verify all animations work (framer-motion scroll reveal)
+2. Test keyboard navigation
+3. Test mobile responsiveness at all breakpoints
+4. Lighthouse audit (performance, accessibility)
+5. Visual comparison with original site
+6. Clean up any unused code
 
-**Phase 7 will follow with polish & verification**
+After Phase 7, delete Gatsby-specific files:
+- gatsby-browser.js, gatsby-config.js, gatsby-node.js, gatsby-ssr.js
+- .babelrc
+- src/pages-gatsby-backup/ (after verifying all functionality)
 
 ### Critical Technical Notes
 
