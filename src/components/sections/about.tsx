@@ -28,8 +28,8 @@ export default function About() {
         About Me
       </motion.h2>
 
-      <div className="grid grid-cols-3-2 gap-[50px]">
-        <div className="col-span-3-2">
+      <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-[50px]">
+        <div className="md:col-span-1">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,15 +60,14 @@ export default function About() {
           </motion.div>
 
           <motion.ul
-            className="grid grid-cols-2 minmax-[140px,200px] gap-0 gap-x-[10px] p-0 mt-5 overflow-hidden list-none"
+            className="grid grid-cols-[repeat(2,minmax(140px,200px))] gap-0 gap-x-[10px] p-0 mt-5 overflow-hidden list-none styled-list"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {skills.map((skill, i) => (
-              <li key={i} className="relative mb-2.5 pl-5 font-mono text-xs text-light-slate">
-                <span className="absolute left-0 text-green text-sm leading-[12px]">▹</span>
+              <li key={i} className="text-[13px] font-mono text-light-slate">
                 {skill}
               </li>
             ))}
@@ -76,24 +75,23 @@ export default function About() {
         </div>
 
         <motion.div
-          className="relative max-w-[300px]"
+          className="relative max-w-[300px] mx-auto md:mx-0"
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <div className="relative block w-full rounded-[var(--border-radius)] bg-green group">
-            <div className="relative z-10 rounded-[var(--border-radius)] overflow-hidden">
+          <div className="relative block w-full rounded-[var(--border-radius)] group cursor-pointer">
+            <div className="absolute top-4 left-4 w-full h-full rounded-[var(--border-radius)] border-2 border-green transition-all duration-300 group-hover:top-3 group-hover:left-3 z-0" />
+            <div className="relative rounded-[var(--border-radius)] overflow-hidden bg-green transition-all duration-300 group-hover:-translate-y-1 group-hover:-translate-x-1">
               <Image
                 src="/me.jpg"
                 alt="Portrait of Nicolas Metallo"
                 width={500}
                 height={500}
-                className="object-cover filter grayscale contrast-100 brightness-90 mix-blend-multiply transition-all duration-300"
+                className="object-cover relative z-10 mix-blend-multiply filter grayscale contrast-100 transition-all duration-300 group-hover:filter-none group-hover:mix-blend-normal"
               />
             </div>
-            <div className="absolute inset-0 rounded-[var(--border-radius)] transition-all duration-300 mix-blend-screen bg-navy" />
-            <div className="absolute top-3.5 left-3.5 w-full h-full rounded-[var(--border-radius)] border-2 border-green z-[-1]" />
           </div>
         </motion.div>
       </div>

@@ -43,7 +43,7 @@ export default function Contact() {
 
       <motion.a
         href={`mailto:${EMAIL}`}
-        className="button inline-block"
+        className="button inline-block mt-10 hover:shadow-[0_0_20px_rgba(100,255,218,0.3)] hover:-translate-y-1 transition-all duration-300"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

@@ -59,11 +59,12 @@ export default function Footer() {
           href="https://github.com/nicometallo/nicometallo-website"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 inline-block"
+          className="p-2 inline-block hover:text-green transition-all duration-300"
         >
-          <div>Forked from <a href="https://github.com/bchiang7/v4" target="_blank" rel="noopener noreferrer">Brittany Chiang's v4</a></div>
+          <div>Built by Nicolas Metallo</div>
+          <div className="mt-1">Design by Brittany Chiang</div>
 
-          {githubInfo.stars !== null && githubInfo.forks !== null && (
+          {typeof githubInfo.stars === 'number' && typeof githubInfo.forks === 'number' && (
             <div className="mt-2 flex items-center gap-3">
               <span className="flex items-center">
                 <Icon name="Star" />

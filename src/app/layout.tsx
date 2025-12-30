@@ -42,6 +42,7 @@ const sfMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nicometallo.com"),
   title: "Nicolas Metallo",
   description:
     "Nicolas Metallo is a technologist who specializes in building exceptional digital experiences.",

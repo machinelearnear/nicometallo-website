@@ -6,13 +6,19 @@ import { navDelay, loaderDelay } from '@/utils';
 import { usePrefersReducedMotion } from '@/hooks';
 
 const items = [
-  <h1 key="1">Hi, my name is</h1>,
-  <h2 key="2" className="big-heading">Nicolas Metallo.</h2>,
-  <h3 key="3" className="big-heading">I build things for the web.</h3>,
-  <p key="4">
+  <h1 key="1" className="text-green font-mono text-[16px] mb-[30px] ml-1">
+    Hi, my name is
+  </h1>,
+  <h2 key="2" className="big-heading text-slate-lightest font-bold tracking-tight">
+    Nicolas Metallo.
+  </h2>,
+  <h3 key="3" className="big-heading text-slate mt-2">
+    I build things for the web.
+  </h3>,
+  <p key="4" className="mt-5 max-w-[540px] text-lg md:text-xl text-slate">
     I&apos;m a software engineer specializing in building (and occasionally designing) exceptional
     digital experiences. Currently, I&apos;m focused on building accessible, human-centered products
-    at <a href="https://upstatement.com/" target="_blank" rel="noreferrer">Upstatement</a>.
+    at <a href="https://upstatement.com/" target="_blank" rel="noreferrer" className="text-green hover:underline decoration-green/50 underline-offset-4 transition-all">Upstatement</a>.
   </p>,
 ];
 
@@ -40,18 +46,24 @@ export default function Hero() {
         </div>
       ) : (
         <AnimatePresence>
-          {isMounted &&
-            items.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: (loaderDelay + i * 100) / 1000 }}
-                style={{ transitionDelay: `${loaderDelay + i * 100}ms` }}
-              >
-                {item}
-              </motion.div>
-            ))}
+          <div className="flex flex-col items-start w-full">
+            {isMounted &&
+              items.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ 
+                    duration: 0.5, 
+                    ease: [0.645, 0.045, 0.355, 1],
+                    delay: (loaderDelay + i * 100) / 1000 
+                  }}
+                  className="w-full"
+                >
+                  {item}
+                </motion.div>
+              ))}
+          </div>
         </AnimatePresence>
       )}
     </section>

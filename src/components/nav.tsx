@@ -57,10 +57,11 @@ export default function Nav({ isHome = false }: NavProps) {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 px-12 backdrop-blur-md bg-navy/85 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50 px-[25px] md:px-[50px] backdrop-blur-[10px] bg-[rgba(10,25,47,0.85)] transition-all duration-500 ease-[cubic-bezier(0.645,0.045,0.355,1)]"
       style={{
         height: navHeight,
-        transform: isHidden ? 'translateY(-70px)' : 'translateY(0)',
+        transform: isHidden ? 'translateY(-100px)' : 'translateY(0)',
+        boxShadow: scrolledToTop ? 'none' : '0 10px 30px -10px rgba(2,12,27,0.7)',
       }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -88,8 +89,9 @@ export default function Nav({ isHome = false }: NavProps) {
               >
                 <Link
                   href={url}
-                  className="relative px-3 py-2 text-xs text-light-slate hover:text-green transition-colors before:content-['0'] before:absolute before:left-0 before:text-green before:text-xxs before:-ml-1 before:opacity-0 hover:before:opacity-100"
+                  className="px-3 py-2 text-xs text-light-slate hover:text-green transition-colors"
                 >
+                  <span className="text-green font-mono text-xs">0{i + 1}.</span>
                   {name}
                 </Link>
               </motion.li>
@@ -146,12 +148,15 @@ export default function Nav({ isHome = false }: NavProps) {
             >
               <nav className="flex flex-col items-center gap-8 font-mono text-lg">
                 {navLinks.map(({ url, name }, i) => (
-                <Link
-                  key={i}
-                  href={url}
-                  className="text-lightest-slate hover:text-green transition-colors relative"
-                >
-                    {name}
+                  <Link
+                    key={i}
+                    href={url}
+                    className="text-lightest-slate hover:text-green transition-colors relative"
+                  >
+                    <div className="flex flex-col items-center">
+                      <span className="text-green font-mono text-sm mb-1">0{i + 1}.</span>
+                      <span>{name}</span>
+                    </div>
                   </Link>
                 ))}
                 <a

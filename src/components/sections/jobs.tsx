@@ -65,10 +65,10 @@ export default function Jobs({ jobs }: JobsProps) {
         Where I&apos;ve Worked
       </motion.h2>
 
-      <div className="flex relative">
+      <div className="flex flex-col md:flex-row relative">
         {/* Tab List */}
         <div
-          className="relative z-[3] w-auto p-0 m-0 list-none hidden md:block"
+          className="relative z-[3] w-full md:w-auto flex md:flex-col overflow-x-auto md:overflow-visible mb-8 md:mb-0 md:pl-0"
           role="tablist"
           aria-label="Job tabs"
           onKeyDown={onKeyDown}
@@ -79,9 +79,9 @@ export default function Jobs({ jobs }: JobsProps) {
                 ref={(el) => {
                   if (el) tabsRef.current[i] = el;
                 }}
-                className={`flex items-center w-full h-[var(--tab-height)] px-5 py-0 pb-0.5 border-l-2 border-lightest-navy bg-transparent text-left whitespace-nowrap transition-colors duration-300 ${
+                className={`flex items-center justify-center md:justify-start min-w-[120px] md:min-w-0 w-full md:w-[var(--tab-width)] h-[var(--tab-height)] px-5 py-0 border-b-2 md:border-b-0 md:border-l-2 border-lightest-navy bg-transparent text-xs font-mono whitespace-nowrap transition-all duration-300 ${
                   activeTabId === i ? 'text-green' : 'text-slate'
-                } hover:bg-light-navy focus:outline-none`}
+                } hover:bg-light-navy/50 focus:outline-none`}
                 onClick={() => setActiveTabId(i)}
                 role="tab"
                 aria-selected={activeTabId === i}
@@ -91,15 +91,22 @@ export default function Jobs({ jobs }: JobsProps) {
                 <span>{job.company}</span>
               </button>
             ))}
+          {/* Desktop Highlight */}
           <motion.div
-            className="absolute top-0 left-0 z-10 w-0.5 h-[var(--tab-height)] rounded-[var(--border-radius)] bg-green"
+            className="hidden md:block absolute top-0 left-0 z-10 w-0.5 h-[var(--tab-height)] rounded-[var(--border-radius)] bg-green"
             animate={{ y: activeTabId * 42 }}
-            transition={{ duration: 0.25, delay: 0.1 }}
+            transition={{ duration: 0.25, ease: [0.645, 0.045, 0.355, 1] }}
+          />
+          {/* Mobile Highlight */}
+          <motion.div
+            className="block md:hidden absolute bottom-0 left-0 z-10 h-0.5 w-[120px] bg-green"
+            animate={{ x: activeTabId * 120 }}
+            transition={{ duration: 0.25, ease: [0.645, 0.045, 0.355, 1] }}
           />
         </div>
 
         {/* Tab Panels */}
-        <div className="w-full ml-5 relative">
+        <div className="w-full md:ml-5 relative">
           <AnimatePresence mode="wait">
             {jobs.map((job: Job, i: number) => (
               activeTabId === i && (
@@ -128,7 +135,7 @@ export default function Jobs({ jobs }: JobsProps) {
                   </p>
 
                   <div
-                    className="text-light-slate text-[clamp(var(--fz-lg),3vw,var(--fz-xl))] leading-[1.3]"
+                    className="text-light-slate text-[clamp(var(--fz-lg),3vw,var(--fz-xl))] leading-[1.3] styled-list"
                     dangerouslySetInnerHTML={{ __html: job.content }}
                   />
                 </motion.div>

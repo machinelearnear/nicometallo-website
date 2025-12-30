@@ -43,7 +43,7 @@ export async function getAllJobs(): Promise<Job[]> {
         location: data.location as string,
         range: data.range as string,
         url: data.url as string,
-        content,
+        content: await markdownToHtml(content),
       } as Job;
     })
   );
@@ -75,7 +75,7 @@ export async function getFeaturedProjects(): Promise<FeaturedProject[]> {
         github: data.github as string | undefined,
         external: data.external as string | undefined,
         cta: data.cta as string | undefined,
-        content,
+        content: await markdownToHtml(content),
       } as FeaturedProject;
     })
   );
@@ -109,7 +109,7 @@ export async function getAllProjects(showOnlyVisible = false): Promise<Project[]
         external: data.external as string | undefined,
         company: data.company as string | undefined,
         showInProjects: data.showInProjects as boolean,
-        content,
+        content: await markdownToHtml(content),
         slug,
       } as Project;
 
@@ -149,7 +149,7 @@ export async function getAllPosts(): Promise<Post[]> {
         draft: data.draft as boolean,
         slug: slug, // Use directory name, not frontmatter slug
         tags: (data.tags as string[]) || [],
-        content,
+        content: await markdownToHtml(content),
       } as Post;
     })
   );
@@ -185,7 +185,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     draft: data.draft as boolean,
     slug: slug, // Use directory name, not frontmatter slug
     tags: (data.tags as string[]) || [],
-    content,
+    content: await markdownToHtml(content),
   } as Post;
 }
 

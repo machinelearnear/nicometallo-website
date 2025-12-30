@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 /*
- * Design System - Migrated from Gatsby styled-components
- * Source: src/styles/variables.js
+ * Design System - Migrated from Brittany Chiang's v4 portfolio
  */
 
 :root {
@@ -64,7 +63,6 @@
 
 /* Tailwind v4 theme configuration */
 @theme inline {
-  /* Map CSS variables to Tailwind colors */
   --color-navy: var(--navy);
   --color-navy-dark: var(--dark-navy);
   --color-navy-light: var(--light-navy);
@@ -81,9 +79,17 @@
   --color-pink: var(--pink);
   --color-blue: var(--blue);
 
-  /* Font families */
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+
+  --text-xxs: var(--fz-xxs);
+  --text-xs: var(--fz-xs);
+  --text-sm: var(--fz-sm);
+  --text-base: var(--fz-md);
+  --text-lg: var(--fz-lg);
+  --text-xl: var(--fz-xl);
+  --text-2xl: var(--fz-xxl);
+  --text-heading: var(--fz-heading);
 }
 
 /* Base styles */
@@ -113,64 +119,29 @@ body {
   line-height: 1.3;
 }
 
-@media (max-width: 480px) {
-  body {
-    font-size: var(--fz-lg);
-  }
-}
-
-#__next {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: 1fr auto;
-  grid-template-columns: 100%;
-}
-
 main {
   margin: 0 auto;
   width: 100%;
   max-width: 1600px;
   min-height: 100vh;
-  padding: 200px 150px;
+  padding: 0 150px;
   counter-reset: section;
 }
 
 @media (max-width: 1080px) {
   main {
-    padding: 200px 100px;
-  }
-}
-
-@media (max-width: 768px) {
-  main {
-    padding: 150px 50px;
-  }
-}
-
-@media (max-width: 480px) {
-  main {
-    padding: 125px 25px;
-  }
-}
-
-main.fillHeight {
-  padding: 0 150px;
-}
-
-@media (max-width: 1080px) {
-  main.fillHeight {
     padding: 0 100px;
   }
 }
 
 @media (max-width: 768px) {
-  main.fillHeight {
+  main {
     padding: 0 50px;
   }
 }
 
 @media (max-width: 480px) {
-  main.fillHeight {
+  main {
     padding: 0 25px;
   }
 }
@@ -470,6 +441,27 @@ h3.big-heading {
   font-size: clamp(30px, 6vw, 60px);
   font-weight: 600;
   color: var(--slate);
+}
+
+/* Styled list for markdown content */
+.styled-list ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.styled-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.styled-list li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  line-height: 12px;
 }
 
 /* Animation keyframes */
