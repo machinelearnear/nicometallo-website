@@ -1,36 +1,27 @@
 @import "tailwindcss";
 
-/*
- * Design System - Migrated from Brittany Chiang's v4 portfolio
- */
-
 :root {
-  /* Colors - Navy palette */
   --dark-navy: #020c1b;
   --navy: #0a192f;
   --light-navy: #112240;
   --lightest-navy: #233554;
   --navy-shadow: rgba(2, 12, 27, 0.7);
 
-  /* Colors - Slate palette */
   --dark-slate: #495670;
   --slate: #8892b0;
   --light-slate: #a8b2d1;
   --lightest-slate: #ccd6f6;
 
-  /* Colors - Accent */
   --white: #e6f1ff;
   --green: #64ffda;
   --green-tint: rgba(100, 255, 218, 0.1);
   --pink: #f57dff;
   --blue: #57cbff;
 
-  /* Typography - Fonts */
   --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text",
     -apple-system, system-ui, sans-serif;
   --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
 
-  /* Typography - Sizes */
   --fz-xxs: 12px;
   --fz-xs: 13px;
   --fz-sm: 14px;
@@ -40,7 +31,6 @@
   --fz-xxl: 22px;
   --fz-heading: 32px;
 
-  /* Layout */
   --border-radius: 4px;
   --nav-height: 100px;
   --nav-scroll-height: 70px;
@@ -48,11 +38,9 @@
   --tab-width: 120px;
   --hamburger-width: 30px;
 
-  /* Animation */
   --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-  /* Hamburger menu animations */
   --ham-before: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
   --ham-before-active: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
   --ham-after: bottom 0.1s ease-in 0.25s,
@@ -61,7 +49,6 @@
     transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
 }
 
-/* Tailwind v4 theme configuration */
 @theme inline {
   --color-navy: var(--navy);
   --color-navy-dark: var(--dark-navy);
@@ -92,7 +79,6 @@
   --text-heading: var(--fz-heading);
 }
 
-/* Base styles */
 html {
   box-sizing: border-box;
   width: 100%;
@@ -164,7 +150,6 @@ section {
   }
 }
 
-/* Headings */
 h1,
 h2,
 h3,
@@ -177,7 +162,6 @@ h6 {
   line-height: 1.1;
 }
 
-/* Links */
 a {
   display: inline-block;
   text-decoration: none;
@@ -192,7 +176,6 @@ a:focus {
   color: var(--green);
 }
 
-/* Scrollbar */
 html {
   scrollbar-width: thin;
   scrollbar-color: var(--dark-slate) var(--navy);
@@ -212,13 +195,11 @@ html {
   border-radius: 10px;
 }
 
-/* Selection */
 ::selection {
   background-color: var(--lightest-navy);
   color: var(--lightest-slate);
 }
 
-/* Focus */
 :focus {
   outline: 2px dashed var(--green);
   outline-offset: 3px;
@@ -234,7 +215,6 @@ html {
   outline-offset: 3px;
 }
 
-/* Skip to content */
 .skip-to-content {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -262,7 +242,6 @@ html {
   margin: 0.5em;
 }
 
-/* Numbered headings */
 .numbered-heading {
   display: flex;
   align-items: center;
@@ -321,7 +300,6 @@ html {
   }
 }
 
-/* Inline link style */
 .inline-link {
   display: inline-block;
   position: relative;
@@ -345,7 +323,6 @@ html {
   width: 100%;
 }
 
-/* Button styles */
 .button {
   color: var(--green);
   background-color: transparent;
@@ -421,7 +398,74 @@ html {
   display: none !important;
 }
 
-/* Big heading styles */
+.email-link {
+  color: var(--green);
+  background-color: transparent;
+  border: 1px solid var(--green);
+  border-radius: var(--border-radius);
+  padding: 1.25rem 1.75rem;
+  font-size: var(--fz-sm);
+  font-family: var(--font-mono);
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.email-link:hover,
+.email-link:focus-visible {
+  outline: none;
+  box-shadow: 4px 4px 0 0 var(--green);
+  transform: translate(-5px, -5px);
+}
+
+.email-link:after {
+  display: none !important;
+}
+
+.cta {
+  color: var(--green);
+  background-color: transparent;
+  border: 1px solid var(--green);
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1rem;
+  font-size: var(--fz-xs);
+  font-family: var(--font-mono);
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cta:hover,
+.cta:focus-visible {
+  outline: none;
+  box-shadow: 3px 3px 0 0 var(--green);
+  transform: translate(-4px, -4px);
+}
+
+.cta:after {
+  display: none !important;
+}
+
+.overline {
+  display: block;
+  margin-bottom: 20px;
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: var(--fz-md);
+  font-weight: 400;
+}
+
+.overline:before {
+  bottom: 0;
+  font-size: var(--fz-sm);
+}
+
+.overline:after {
+  display: none;
+}
+
 .big-heading {
   margin: 0;
   font-weight: 600;
@@ -443,7 +487,6 @@ h3.big-heading {
   color: var(--slate);
 }
 
-/* Styled list for markdown content */
 .styled-list ul {
   padding: 0;
   margin: 0;
@@ -452,7 +495,7 @@ h3.big-heading {
 
 .styled-list li {
   position: relative;
-  padding-left: 20px;
+  padding-left: 30px;
   margin-bottom: 10px;
 }
 
@@ -464,7 +507,6 @@ h3.big-heading {
   line-height: 12px;
 }
 
-/* Animation keyframes */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -478,12 +520,10 @@ h3.big-heading {
   animation: fadeIn 0.5s ease forwards;
 }
 
-/* Writing mode vertical */
 .writing-mode-vertical {
   writing-mode: vertical-rl;
 }
 
-/* Hidden class for blur effect on body */
 body.blur {
   overflow: hidden;
 }
