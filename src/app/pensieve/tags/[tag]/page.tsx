@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import ClientLayout from '@/app/layout-client';
+import { FadeIn } from '@/components/fade-in';
 import { getPostsByTag } from '@/lib/content';
 import { Icon } from '@/components/icons';
 import type { Post } from '@/types/content';
@@ -31,13 +31,7 @@ export default async function TagPage({ params }: TagPageProps) {
   return (
     <ClientLayout>
       <main className="fillHeight py-[100px] px-[25px] max-w-[1000px] mx-auto">
-        <motion.header
-          className="mb-[50px]"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <FadeIn as="header" className="mb-[50px]" y={30}>
           <span className="text-light-slate mb-4 block">
             <span className="mr-1">&larr;</span>
             <Link href="/pensieve" className="inline-link hover:text-green transition-colors">
@@ -45,7 +39,7 @@ export default async function TagPage({ params }: TagPageProps) {
             </Link>
           </span>
           <h1 className="big-heading text-lightest-slate">#{tag}</h1>
-        </motion.header>
+        </FadeIn>
 
         {posts.length === 0 ? (
           <p className="text-light-slate">No posts found with this tag.</p>
@@ -60,13 +54,11 @@ export default async function TagPage({ params }: TagPageProps) {
               });
 
               return (
-                <motion.li
+                <FadeIn
                   key={slug}
+                  as="li"
                   className="cursor-default transition-transform duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  delay={i * 0.05}
                 >
                   <Link href={`/${slug}`} className="block relative z-10">
                     <div className="flex flex-col justify-between h-full p-7 rounded-[var(--border-radius)] bg-light-navy shadow-xl transition-all duration-300 hover:-translate-y-1.75 hover:shadow-2xl">
@@ -94,7 +86,7 @@ export default async function TagPage({ params }: TagPageProps) {
                       </footer>
                     </div>
                   </Link>
-                </motion.li>
+                </FadeIn>
               );
             })}
           </ul>

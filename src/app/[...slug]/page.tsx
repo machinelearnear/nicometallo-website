@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { motion } from 'framer-motion';
 import ClientLayout from '@/app/layout-client';
+import { FadeIn } from '@/components/fade-in';
 import { getPostBySlug, getAllPosts } from '@/lib/content';
 import type { Post } from '@/types/content';
 
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 export async function generateStaticParams() {
   const posts = await getAllPosts();
   return posts.map((post: Post) => ({
-    slug: post.slug.split('/'),
+    slug: post.slug.split('/').filter(Boolean),
   }));
 }
 
@@ -55,13 +55,7 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <ClientLayout>
       <main className="fillHeight py-[100px] px-[25px] max-w-[1000px] mx-auto">
-        <motion.header
-          className="mb-[50px]"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <FadeIn as="header" className="mb-[50px]" y={30}>
           <span className="text-light-slate mb-4 block">
             <span className="mr-1">&larr;</span>
             <Link href="/pensieve" className="inline-link hover:text-green transition-colors">
@@ -86,16 +80,11 @@ export default async function PostPage({ params }: PostPageProps) {
               </>
             )}
           </p>
-        </motion.header>
+        </FadeIn>
 
-        <motion.article
-          className="prose prose-invert max-w-none"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <FadeIn as="article" className="prose prose-invert max-w-none" delay={0.2}>
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </FadeIn>
       </main>
     </ClientLayout>
   );

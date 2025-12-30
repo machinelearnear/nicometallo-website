@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import ClientLayout from '@/app/layout-client';
+import { FadeIn } from '@/components/fade-in';
 import { getAllPosts } from '@/lib/content';
 import { Icon } from '@/components/icons';
 import type { Post } from '@/types/content';
@@ -17,13 +17,7 @@ export default async function PensievePage() {
   return (
     <ClientLayout>
       <main className="fillHeight py-[100px] px-[25px] max-w-[1000px] mx-auto">
-        <motion.header
-          className="mb-[100px] text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <FadeIn as="header" className="mb-[100px] text-center" y={30}>
           <h1 className="big-heading text-lightest-slate">Pensieve</h1>
           <p className="subtitle text-light-slate mt-4">
             <a
@@ -35,7 +29,7 @@ export default async function PensievePage() {
               a collection of memories
             </a>
           </p>
-        </motion.header>
+        </FadeIn>
 
         <ul className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-[15px] mt-12">
           {posts.map((post: Post, i: number) => {
@@ -47,13 +41,11 @@ export default async function PensievePage() {
             });
 
             return (
-              <motion.li
+              <FadeIn
                 key={slug}
+                as="li"
                 className="cursor-default transition-transform duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
+                delay={i * 0.05}
               >
                 <Link href={`/${slug}`} className="block relative z-10">
                   <div className="flex flex-col justify-between h-full p-7 rounded-[var(--border-radius)] bg-light-navy shadow-xl transition-all duration-300 hover:-translate-y-1.75 hover:shadow-2xl">
@@ -81,7 +73,7 @@ export default async function PensievePage() {
                     </footer>
                   </div>
                 </Link>
-              </motion.li>
+              </FadeIn>
             );
           })}
         </ul>

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import ClientLayout from '@/app/layout-client';
+import { FadeIn } from '@/components/fade-in';
 import { getAllPosts } from '@/lib/content';
 import type { Post } from '@/types/content';
 
@@ -34,13 +34,7 @@ export default async function TagsPage() {
   return (
     <ClientLayout>
       <main className="fillHeight py-[100px] px-[25px] max-w-[1000px] mx-auto">
-        <motion.header
-          className="mb-[50px]"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <FadeIn as="header" className="mb-[50px]" y={30}>
           <span className="text-light-slate mb-4 block">
             <span className="mr-1">&larr;</span>
             <Link href="/pensieve" className="inline-link hover:text-green transition-colors">
@@ -48,15 +42,9 @@ export default async function TagsPage() {
             </Link>
           </span>
           <h1 className="big-heading text-lightest-slate">Tags</h1>
-        </motion.header>
+        </FadeIn>
 
-        <motion.ul
-          className="fancy-list text-light-slate"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
+        <FadeIn as="ul" className="fancy-list text-light-slate" delay={0.2}>
           {tagCounts.map(({ tag, count }) => (
             <li key={tag} className="text-[clamp(22px,5vw,var(--fz-xxl))] mb-4">
               <Link href={`/pensieve/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`} className="inline-link hover:text-green transition-colors">
@@ -67,7 +55,7 @@ export default async function TagsPage() {
               </Link>
             </li>
           ))}
-        </motion.ul>
+        </FadeIn>
       </main>
     </ClientLayout>
   );
