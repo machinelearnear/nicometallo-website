@@ -450,6 +450,28 @@ html {
   display: none !important;
 }
 
+/* Big heading styles */
+.big-heading {
+  margin: 0;
+  font-weight: 600;
+  color: var(--lightest-slate);
+  line-height: 1.1;
+}
+
+h1.big-heading {
+  font-size: clamp(40px, 8vw, 80px);
+}
+
+h2.big-heading {
+  font-size: clamp(40px, 8vw, 80px);
+}
+
+h3.big-heading {
+  font-size: clamp(30px, 6vw, 60px);
+  font-weight: 600;
+  color: var(--slate);
+}
+
 /* Animation keyframes */
 @keyframes fadeIn {
   from {
