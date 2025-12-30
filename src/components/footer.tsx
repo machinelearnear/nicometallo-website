@@ -61,7 +61,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="p-2 inline-block"
         >
-          <div>Designed & Built by Nicolas Metallo</div>
+          <div>Forked from <a href="https://github.com/bchiang7/v4" target="_blank" rel="noopener noreferrer">Brittany Chiang's v4</a></div>
 
           {githubInfo.stars !== null && githubInfo.forks !== null && (
             <div className="mt-2 flex items-center gap-3">
