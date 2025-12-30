@@ -46,7 +46,7 @@ export default function Hero() {
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0, delay: loaderDelay + i * 100 }}
+                transition={{ duration: 0.3, delay: (loaderDelay + i * 100) / 1000 }}
                 style={{ transitionDelay: `${loaderDelay + i * 100}ms` }}
               >
                 {item}

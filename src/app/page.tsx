@@ -17,7 +17,7 @@ export default async function Home() {
 
   return (
     <ClientLayout>
-      <main className="fillHeight counter-reset-section">
+      <main id="content" className="fillHeight counter-reset-section">
         <Hero />
         <About />
         <Jobs jobs={jobs} />
