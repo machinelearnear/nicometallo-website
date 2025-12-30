@@ -86,7 +86,7 @@ export default function About() {
             <div className="relative z-10 rounded-[var(--border-radius)] overflow-hidden">
               <Image
                 src="/me.jpg"
-                alt="Headshot"
+                alt="Portrait of Nicolas Metallo"
                 width={500}
                 height={500}
                 className="object-cover filter grayscale contrast-100 brightness-90 mix-blend-multiply transition-all duration-300"
