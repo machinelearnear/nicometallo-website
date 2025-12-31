@@ -13,11 +13,10 @@ interface SocialMediaItem {
 }
 
 const socialMedia: SocialMediaItem[] = [
-  { name: 'GitHub', url: 'https://github.com/nicometallo' },
-  { name: 'Instagram', url: 'https://www.instagram.com/nicometallo' },
-  { name: 'Twitter', url: 'https://twitter.com/nicometallo' },
-  { name: 'Linkedin', url: 'https://linkedin.com/in/nicometallo' },
-  { name: 'Codepen', url: 'https://codepen.io/nicometallo' },
+  { name: 'GitHub', url: 'https://github.com/machinelearnear' },
+  { name: 'YouTube', url: 'https://www.youtube.com/@machinelearnear' },
+  { name: 'Twitter', url: 'https://twitter.com/nicolasmetallo' },
+  { name: 'Linkedin', url: 'https://linkedin.com/in/nicolas-metallo' },
 ];
 
 export default function Social({ isHome = false }: SocialProps) {

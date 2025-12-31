@@ -13,21 +13,21 @@ const items = [
     Nicolas Metallo.
   </h2>,
   <h3 key="3" className="big-heading text-slate mt-2">
-    I build things for the web.
+    I build AI that matters.
   </h3>,
   <p key="4" className="mt-5 max-w-[540px] text-lg md:text-xl text-slate">
-    I&apos;m a software engineer specializing in building (and occasionally designing) exceptional
-    digital experiences. Currently, I&apos;m focused on building accessible, human-centered products
-    at <a href="https://upstatement.com/" target="_blank" rel="noreferrer" className="text-green hover:underline decoration-green/50 underline-offset-4 transition-all">Upstatement</a>.
+    I&apos;m a Generative AI leader helping enterprises and governments across EMEA unlock the potential
+    of AI. Currently at <a href="https://aws.amazon.com/" target="_blank" rel="noreferrer" className="text-green hover:underline decoration-green/50 underline-offset-4 transition-all">AWS</a> leading
+    sovereign AI initiatives, and sharing what I learn on <a href="https://www.youtube.com/@machinelearnear" target="_blank" rel="noreferrer" className="text-green hover:underline decoration-green/50 underline-offset-4 transition-all">YouTube</a>.
   </p>,
   <a
     key="5"
     className="email-link button mt-[50px]"
-    href="https://www.newline.co/courses/build-a-spotify-connected-app"
+    href="https://www.youtube.com/@machinelearnear"
     target="_blank"
     rel="noreferrer"
   >
-    Check out my course!
+    Check out my channel!
   </a>,
 ];
 

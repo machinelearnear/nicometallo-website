@@ -37,8 +37,9 @@ export default function Contact() {
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Although I&apos;m not currently looking for any new opportunities, my inbox is always open.
-        Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
+        I&apos;m always interested in hearing about new AI projects, speaking opportunities, or just
+        connecting with folks working on interesting problems. Whether you want to collaborate on
+        GenAI initiatives or just say hola, my inbox is always open!
       </motion.p>
 
       <motion.a

@@ -30,23 +30,19 @@ export const config = {
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/nicometallo',
+      url: 'https://github.com/machinelearnear',
     },
     {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/nicometallo',
+      name: 'YouTube',
+      url: 'https://www.youtube.com/@machinelearnear',
     },
     {
       name: 'Twitter',
-      url: 'https://twitter.com/nicometallo',
+      url: 'https://twitter.com/nicolasmetallo',
     },
     {
       name: 'Linkedin',
-      url: 'https://linkedin.com/in/nicometallo',
-    },
-    {
-      name: 'Codepen',
-      url: 'https://codepen.io/nicometallo',
+      url: 'https://linkedin.com/in/nicolas-metallo',
     },
   ] as SocialMedia[],
 

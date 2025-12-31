@@ -5,12 +5,12 @@ import Image from 'next/image';
 import { usePrefersReducedMotion } from '@/hooks';
 
 const skills = [
-  'JavaScript (ES6+)',
-  'TypeScript',
-  'React',
-  'Node.js',
   'Python',
-  'PostgreSQL',
+  'LLMs & Fine-tuning',
+  'Agentic AI',
+  'MLOps',
+  'AWS',
+  'TypeScript',
 ];
 
 export default function About() {
@@ -37,25 +37,24 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <p className="mb-4 text-light-slate text-[clamp(var(--fz-lg),3vw,var(--fz-xl))] leading-[1.3]">
-              Hello! My name is Nicolas and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
+              Hello! I&apos;m Nico, an AI leader from Buenos Aires, Argentina. My journey into tech started
+              as a mechanical engineer working in oil &amp; gas, but I taught myself to code and made 
+              a career pivot into data science and AI. I even wrote a{' '}
+              <a href="https://medium.com/@nicolas.metallo/train-a-choripan-classifier-with-fast-ai-v1-in-google-colab-6e438817656a" className="inline-link">choripan classifier</a> along the way!
             </p>
 
             <p className="mb-4 text-light-slate text-[clamp(var(--fz-lg),3vw,var(--fz-xl))] leading-[1.3]">
-              Fast-forward to today, and I've had the privilege of working at{' '}
-              <a href="https://us.mullenlowe.com/" className="inline-link">an advertising agency</a>,{' '}
-              <a href="https://starry.com/" className="inline-link">a start-up</a>,{' '}
-              <a href="https://www.apple.com/" className="inline-link">a huge corporation</a>, and{' '}
-              <a href="https://scout.camd.northeastern.edu/" className="inline-link">a student-led design studio</a>. My
-              main focus these days is building accessible, inclusive products and digital
-              experiences at <a href="https://upstatement.com/" className="inline-link">Upstatement</a> for a variety of
-              clients.
+              After completing my Master&apos;s at <a href="https://www.nyu.edu/" className="inline-link">NYU</a> as
+              a Fulbright scholar, I joined <a href="https://aws.amazon.com/" className="inline-link">AWS</a> where
+              I&apos;ve spent the last 5+ years helping enterprises and governments across EMEA unlock 
+              the potential of AI. I&apos;ve led sovereign AI initiatives with 20+ countries and delivered
+              $30M+ in client value.
             </p>
 
             <p className="mb-4 text-light-slate text-[clamp(var(--fz-lg),3vw,var(--fz-xl))] leading-[1.3]">
-              Here are a few technologies I've been working with recently:
+              I also run <a href="https://www.youtube.com/@machinelearnear" className="inline-link">@machinelearnear</a> on 
+              YouTube where I share AI content in Spanish for the Latin American community.
+              Here are a few technologies I&apos;ve been working with recently:
             </p>
           </motion.div>
 

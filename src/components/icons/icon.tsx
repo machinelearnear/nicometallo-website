@@ -14,6 +14,7 @@ import IconLogo from './logo';
 import IconPlayStore from './playstore';
 import IconStar from './star';
 import IconTwitter from './twitter';
+import IconYouTube from './youtube';
 
 export type IconName =
   | 'AppStore'
@@ -30,7 +31,8 @@ export type IconName =
   | 'Logo'
   | 'PlayStore'
   | 'Star'
-  | 'Twitter';
+  | 'Twitter'
+  | 'YouTube';
 
 interface IconProps {
   name: IconName;
@@ -68,6 +70,8 @@ const Icon = ({ name }: IconProps) => {
       return <IconStar />;
     case 'Twitter':
       return <IconTwitter />;
+    case 'YouTube':
+      return <IconYouTube />;
     default:
       return <IconExternal />;
   }

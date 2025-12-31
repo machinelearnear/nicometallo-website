@@ -9,11 +9,10 @@ interface SocialMediaItem {
 }
 
 const socialMedia: SocialMediaItem[] = [
-  { name: 'GitHub', url: 'https://github.com/nicometallo' },
-  { name: 'Instagram', url: 'https://www.instagram.com/nicometallo' },
-  { name: 'Twitter', url: 'https://twitter.com/nicometallo' },
-  { name: 'Linkedin', url: 'https://linkedin.com/in/nicometallo' },
-  { name: 'Codepen', url: 'https://codepen.io/nicometallo' },
+  { name: 'GitHub', url: 'https://github.com/machinelearnear' },
+  { name: 'YouTube', url: 'https://www.youtube.com/@machinelearnear' },
+  { name: 'Twitter', url: 'https://twitter.com/nicolasmetallo' },
+  { name: 'Linkedin', url: 'https://linkedin.com/in/nicolas-metallo' },
 ];
 
 export default function Footer() {
@@ -24,7 +23,7 @@ export default function Footer() {
 
   useEffect(() => {
     if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
-      fetch('https://api.github.com/repos/nicometallo/nicometallo-website')
+      fetch('https://api.github.com/repos/machinelearnear/nicometallo-website')
         .then((response) => response.json())
         .then((json) => {
           const { stargazers_count, forks_count } = json;
@@ -56,7 +55,7 @@ export default function Footer() {
 
       <div tabIndex={-1} className="text-light-slate font-mono text-xxs leading-none">
         <a
-          href="https://github.com/nicometallo/nicometallo-website"
+          href="https://github.com/machinelearnear/nicometallo-website"
           target="_blank"
           rel="noopener noreferrer"
           className="p-2 inline-block hover:text-green transition-all duration-300"
