@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { Icon } from '@/components/icons';
 
 interface SocialMediaItem {
@@ -16,27 +15,6 @@ const socialMedia: SocialMediaItem[] = [
 ];
 
 export default function Footer() {
-  const [githubInfo, setGitHubInfo] = useState({
-    stars: null as number | null,
-    forks: null as number | null,
-  });
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
-      fetch('https://api.github.com/repos/machinelearnear/nicometallo-website')
-        .then((response) => response.json())
-        .then((json) => {
-          const { stargazers_count, forks_count } = json;
-          setGitHubInfo({
-            stars: stargazers_count,
-            forks: forks_count,
-          });
-        })
-        .catch(() => {
-          // Silently fail for GitHub stats
-        });
-    }
-  }, []);
 
   return (
     <footer className="flex flex-col items-center justify-center min-h-[70px] py-4 text-center">
@@ -55,26 +33,18 @@ export default function Footer() {
 
       <div tabIndex={-1} className="text-light-slate font-mono text-xxs leading-none">
         <a
-          href="https://github.com/machinelearnear/nicometallo-website"
+          href="https://github.com/bchiang7/v4"
           target="_blank"
           rel="noopener noreferrer"
           className="p-2 inline-block hover:text-green transition-all duration-300"
         >
-          <div>Built by Nicolas Metallo</div>
+          <div className="flex items-center justify-center gap-1">
+            <span>Built with</span>
+            <span className="text-pink">❤</span>
+            <span>&</span>
+            <span>🧉</span>
+          </div>
           <div className="mt-1">Design by Brittany Chiang</div>
-
-          {typeof githubInfo.stars === 'number' && typeof githubInfo.forks === 'number' && (
-            <div className="github-stats mt-2.5">
-              <span className="inline-flex items-center mx-1.5">
-                <Icon name="Star" />
-                <span className="ml-1">{githubInfo.stars.toLocaleString()}</span>
-              </span>
-              <span className="inline-flex items-center mx-1.5">
-                <Icon name="Fork" />
-                <span className="ml-1">{githubInfo.forks.toLocaleString()}</span>
-              </span>
-            </div>
-          )}
         </a>
       </div>
     </footer>
