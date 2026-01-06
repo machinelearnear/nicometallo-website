@@ -23,7 +23,8 @@ export default function Projects({ projects }: ProjectsProps) {
   return (
     <section className="flex flex-col items-center py-[100px]">
       <motion.h2
-        className="mb-10 text-[clamp(24px,5vw,var(--fz-heading))] text-lightest-slate font-semibold"
+        className="mb-10 font-display text-[clamp(26px,5vw,32px)] font-bold"
+        style={{ color: 'var(--warm-white)' }}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -32,7 +33,7 @@ export default function Projects({ projects }: ProjectsProps) {
         Other Noteworthy Projects
       </motion.h2>
 
-      <Link href="/archive" className="inline-link archive-link font-mono text-sm">
+      <Link href="/archive" className="inline-link font-mono text-sm font-semibold uppercase tracking-wider">
         view the archive
       </Link>
 
@@ -81,14 +82,15 @@ export default function Projects({ projects }: ProjectsProps) {
                     </div>
                   </header>
 
-                  <h3 className="m-0 text-[clamp(22px,5vw,var(--fz-xxl))] text-[var(--lightest-slate)] font-semibold leading-tight">
-                    <a href={external} target="_blank" rel="noreferrer" className="hover:text-[var(--green)] transition-colors">
+                  <h3 className="m-0 font-display text-[clamp(20px,4vw,24px)] font-bold leading-[1.2]" style={{ color: 'var(--warm-white)' }}>
+                    <a href={external} target="_blank" rel="noreferrer" className="hover:text-coral transition-colors">
                       {title}
                     </a>
                   </h3>
 
                   <div
-                    className="mt-4 text-[var(--light-slate)] text-[17px] leading-[1.5] styled-list"
+                    className="mt-4 font-sans text-[16px] leading-[1.6] styled-list"
+                    style={{ color: 'var(--warm-gray)' }}
                     dangerouslySetInnerHTML={{ __html: project.content }}
                   />
                 </div>
@@ -97,7 +99,7 @@ export default function Projects({ projects }: ProjectsProps) {
                   {tech && (
                     <ul className="flex flex-wrap gap-x-5 p-0 list-none styled-list">
                       {tech.map((t: string, j: number) => (
-                        <li key={j} className="font-mono text-[13px] text-[var(--light-slate)] m-0">
+                        <li key={j} className="font-mono text-xs font-medium m-0" style={{ color: 'var(--warm-gray)' }}>
                           {t}
                         </li>
                       ))}
