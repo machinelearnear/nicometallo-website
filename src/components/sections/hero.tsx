@@ -6,27 +6,31 @@ import { navDelay, loaderDelay } from '@/utils';
 import { usePrefersReducedMotion } from '@/hooks';
 
 const items = [
-  <h1 key="1" className="text-green font-mono text-[14px] md:text-[16px] mb-4 tracking-wider">
-    Hi, my name is
+  <h1 key="1" className="font-mono text-[14px] md:text-[16px] mb-4 tracking-[0.15em] uppercase font-bold" style={{ color: 'var(--coral)' }}>
+    Hola, my name is
   </h1>,
-  <h2 key="2" className="big-heading text-lightest-slate font-bold tracking-tight drop-shadow-[0_0_35px_rgba(100,255,218,0.15)]">
+  <h2 key="2" className="big-heading font-black tracking-tight relative inline-block" style={{
+    color: 'var(--warm-white)',
+    textShadow: '4px 4px 0 var(--coral), 8px 8px 0 var(--cyan)'
+  }}>
     Nico.
   </h2>,
-  <h3 key="3" className="big-heading text-slate mt-2 font-medium">
-    I&apos;m a builder.
+  <h3 key="3" className="big-heading mt-2 font-bold" style={{ color: 'var(--warm-gray)' }}>
+    I like to build things with data.
   </h3>,
-  <p key="4" className="mt-6 max-w-[540px] text-lg md:text-xl text-slate leading-relaxed">
-    Currently based in <span className="inline-flex items-center gap-1">Madrid <span role="img" aria-label="Spain">🇪🇸</span></span>, 
-    previously in the <span className="inline-flex items-center gap-1">UK <span role="img" aria-label="United Kingdom">🇬🇧</span></span> and 
-    the <span className="inline-flex items-center gap-1">US <span role="img" aria-label="United States">🇺🇸</span></span>. 
-    Leading sovereign AI initiatives at{' '}
-    <a href="https://aws.amazon.com/" target="_blank" rel="noreferrer" className="text-green hover:text-green/80 hover:drop-shadow-[0_0_8px_rgba(100,255,218,0.5)] transition-all duration-300">AWS</a> and 
-    sharing what I learn on{' '}
-    <a href="https://www.youtube.com/@machinelearnear" target="_blank" rel="noreferrer" className="text-green hover:text-green/80 hover:drop-shadow-[0_0_8px_rgba(100,255,218,0.5)] transition-all duration-300">YouTube</a>.
+  <p key="4" className="mt-8 max-w-[540px] text-lg md:text-xl leading-relaxed" style={{ color: 'var(--warm-gray)' }}>
+    Un pibe del conurbano que anda de ciudad en ciudad.{' '}
+    <span className="inline-flex items-center gap-1 font-semibold" style={{ color: 'var(--warm-white)' }}>
+      <span role="img" aria-label="Argentina">🇦🇷</span> in <span role="img" aria-label="United Kingdom">🇬🇧</span>
+    </span>
+    {' '}/ Machine Learning at{' '}
+    <a href="https://aws.amazon.com/" target="_blank" rel="noreferrer" className="inline-link">Amazon</a>{' '}
+    / Opinions are my own / Sharing what I learn on{' '}
+    <a href="https://www.youtube.com/@machinelearnear" target="_blank" rel="noreferrer" className="inline-link">YouTube</a>.
   </p>,
   <a
     key="5"
-    className="email-link button mt-[50px]"
+    className="email-link button mt-[50px] inline-block"
     href="https://www.youtube.com/@machinelearnear"
     target="_blank"
     rel="noreferrer"
