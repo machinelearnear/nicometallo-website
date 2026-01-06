@@ -6,7 +6,7 @@ import { navDelay, loaderDelay } from '@/utils';
 import { usePrefersReducedMotion } from '@/hooks';
 
 const items = [
-  <h1 key="1" className="text-green font-mono text-[14px] md:text-[16px] mb-[20px] md:mb-[30px] ml-1 tracking-wider">
+  <h1 key="1" className="text-green font-mono text-[14px] md:text-[16px] mb-4 tracking-wider">
     Hi, my name is
   </h1>,
   <h2 key="2" className="big-heading text-lightest-slate font-bold tracking-tight drop-shadow-[0_0_35px_rgba(100,255,218,0.15)]">
