@@ -102,7 +102,7 @@ export default function Nav({ isHome = false }: NavProps) {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-4 px-4 py-2 border border-green text-green rounded font-mono text-xs hover:bg-green/10 transition-colors"
+            className="small-button ml-4"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: isMounted ? timeout + navLinks.length * 100 : 0 }}
@@ -163,7 +163,7 @@ export default function Nav({ isHome = false }: NavProps) {
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 px-8 py-4 border border-green text-green rounded font-mono text-sm hover:bg-green/10 transition-colors"
+                  className="button mt-4"
                 >
                   Resume
                 </a>

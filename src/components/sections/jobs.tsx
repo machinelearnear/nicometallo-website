@@ -79,9 +79,11 @@ export default function Jobs({ jobs }: JobsProps) {
                 ref={(el) => {
                   if (el) tabsRef.current[i] = el;
                 }}
-                className={`flex items-center justify-center md:justify-start min-w-[120px] md:min-w-0 w-full md:w-[var(--tab-width)] h-[var(--tab-height)] px-5 py-0 border-b-2 md:border-b-0 md:border-l-2 border-lightest-navy bg-transparent text-xs font-mono whitespace-nowrap transition-all duration-300 ${
-                  activeTabId === i ? 'text-green' : 'text-slate'
-                } hover:bg-light-navy/50 focus:outline-none`}
+                className={`flex items-center justify-center md:justify-start min-w-[120px] md:min-w-0 w-full md:w-[var(--tab-width)] h-[var(--tab-height)] px-5 py-0 border-b-2 md:border-b-0 md:border-l-2 border-lightest-navy/50 bg-transparent text-xs font-mono whitespace-nowrap transition-all duration-300 ${
+                  activeTabId === i 
+                    ? 'text-green bg-green/5 border-green' 
+                    : 'text-slate hover:text-green hover:bg-light-navy/50'
+                } focus:outline-none`}
                 onClick={() => setActiveTabId(i)}
                 role="tab"
                 aria-selected={activeTabId === i}
