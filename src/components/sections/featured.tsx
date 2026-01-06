@@ -53,16 +53,16 @@ export default function Featured({ projects }: FeaturedProps) {
                 </h3>
 
                 <div
-                  className="relative z-[2] p-0 md:p-[25px] rounded-[var(--border-radius)] bg-transparent md:bg-light-navy text-light-slate text-[18px] leading-[1.3] shadow-none md:shadow-xl hover:shadow-2xl transition-shadow duration-300 styled-list"
+                  className="relative z-[2] p-6 md:p-[30px] rounded-lg bg-light-navy/90 backdrop-blur-sm text-light-slate text-[17px] leading-[1.6] shadow-lg md:shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] hover:shadow-[0_20px_30px_-15px_rgba(2,12,27,0.7)] transition-all duration-300 styled-list border border-lightest-navy/20"
                   dangerouslySetInnerHTML={{ __html: project.content }}
                 />
 
                 {tech.length > 0 && (
-                  <ul className={`flex flex-wrap relative z-[2] mt-6 mb-2.5 p-0 list-none justify-start ${isOdd ? 'md:justify-start' : 'md:justify-end'}`}>
+                  <ul className={`flex flex-wrap relative z-[2] mt-8 mb-4 p-0 list-none gap-3 justify-start ${isOdd ? 'md:justify-start' : 'md:justify-end'}`}>
                     {tech.map((t: string, j: number) => (
                       <li
                         key={j}
-                        className={`mb-1.25 text-light-slate font-mono text-[13px] whitespace-nowrap mr-2.5 ${isOdd ? 'md:mr-5 md:ml-0' : 'md:ml-5 md:mr-0'}`}
+                        className="text-slate font-mono text-[13px] whitespace-nowrap px-3 py-1 rounded bg-navy/50 border border-lightest-navy/10"
                       >
                         {t}
                       </li>

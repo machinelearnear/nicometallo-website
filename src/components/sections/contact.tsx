@@ -10,15 +10,16 @@ export default function Contact() {
 
   return (
     <section id="contact" className="max-w-[600px] mx-auto mb-[100px] text-center">
-      <motion.h2
-        className="numbered-heading overline mb-5 text-green font-mono text-[clamp(var(--fz-md),3vw,var(--fz-xl))] font-normal"
+      <motion.p
+        className="flex items-center justify-center gap-2 mb-5 text-green font-mono text-[clamp(var(--fz-md),3vw,var(--fz-xl))] font-normal"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        What&apos;s Next?
-      </motion.h2>
+        <span className="opacity-90">04.</span>
+        <span>What&apos;s Next?</span>
+      </motion.p>
 
       <motion.h2
         className="mb-6 text-[clamp(40px,5vw,60px)] text-lightest-slate font-semibold leading-tight"
