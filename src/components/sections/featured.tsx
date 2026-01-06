@@ -27,7 +27,7 @@ export default function Featured({ projects }: FeaturedProps) {
 
       <ul className="list-none p-0 m-0">
         {projects.map((project: FeaturedProject, i: number) => {
-          const { external, title, tech, github, cover, cta } = project;
+          const { external, title, tech, github, cover } = project;
           const isOdd = i % 2 !== 0;
 
           return (
@@ -41,9 +41,9 @@ export default function Featured({ projects }: FeaturedProps) {
             >
               {/* Project Content */}
               <div
-                className={`relative flex flex-col justify-center h-full col-span-12 md:col-span-6 z-[5] md:z-[2] ${
-                  isOdd ? 'md:col-start-1 md:text-left' : 'md:col-start-7 md:text-right'
-                } row-start-1 px-10 py-8 md:p-0`}
+                className={`relative flex flex-col justify-center h-full col-span-12 md:col-span-5 md:col-start-1 z-[5] ${
+                  isOdd ? 'md:col-start-7 md:text-left' : 'md:col-start-1 md:text-right'
+                } row-start-1 px-0 py-8 md:p-0`}
               >
                 <p className="mb-2.5 text-green font-mono text-[13px] font-normal">Featured Project</p>
                 <h3 className="mb-5 text-[clamp(24px,5vw,28px)] text-white md:text-lightest-slate hover:text-green transition-colors">
@@ -53,16 +53,16 @@ export default function Featured({ projects }: FeaturedProps) {
                 </h3>
 
                 <div
-                  className="relative z-[2] p-6 md:p-[30px] rounded-lg bg-light-navy/90 backdrop-blur-sm text-light-slate text-[17px] leading-[1.6] shadow-lg md:shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] hover:shadow-[0_20px_30px_-15px_rgba(2,12,27,0.7)] transition-all duration-300 styled-list border border-lightest-navy/20"
+                  className="relative z-[2] p-5 md:p-[25px] rounded-[var(--border-radius)] bg-[var(--light-navy)] text-[var(--light-slate)] text-[17px] leading-[1.6] shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] styled-list"
                   dangerouslySetInnerHTML={{ __html: project.content }}
                 />
 
                 {tech.length > 0 && (
-                  <ul className={`flex flex-wrap relative z-[2] mt-8 mb-4 p-0 list-none gap-3 justify-start ${isOdd ? 'md:justify-start' : 'md:justify-end'}`}>
+                  <ul className={`flex flex-wrap relative z-[2] mt-5 mb-0 p-0 list-none gap-x-5 gap-y-0 justify-start ${isOdd ? 'md:justify-start' : 'md:justify-end'}`}>
                     {tech.map((t: string, j: number) => (
                       <li
                         key={j}
-                        className="text-slate font-mono text-[13px] whitespace-nowrap px-3 py-1 rounded bg-navy/50 border border-lightest-navy/10"
+                        className="text-[var(--light-slate)] font-mono text-[13px] m-0"
                       >
                         {t}
                       </li>
@@ -70,19 +70,14 @@ export default function Featured({ projects }: FeaturedProps) {
                   </ul>
                 )}
 
-                <div className={`flex items-center relative mt-2.5 text-lightest-slate justify-start -ml-2.5 ${isOdd ? 'md:justify-start md:-ml-2.5' : 'md:justify-end md:-mr-2.5 md:ml-0'}`}>
-                  {cta && (
-                    <a href={cta} aria-label="Course Link" className="cta m-2.5">
-                      Learn More
-                    </a>
-                  )}
+                <div className={`flex items-center relative mt-5 text-lightest-slate ${isOdd ? 'md:justify-start' : 'md:justify-end'}`}>
                   {github && (
-                    <a href={github} aria-label="GitHub Link" className="p-2.5 hover:text-green transition-colors">
+                    <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer" className="p-2.5 hover:text-[var(--green)] transition-colors">
                       <Icon name="GitHub" />
                     </a>
                   )}
-                  {external && !cta && (
-                    <a href={external} aria-label="External Link" className="p-2.5 hover:text-green transition-colors">
+                  {external && (
+                    <a href={external} aria-label="External Link" target="_blank" rel="noreferrer" className="p-2.5 hover:text-[var(--green)] transition-colors">
                       <Icon name="External" />
                     </a>
                   )}
@@ -91,18 +86,18 @@ export default function Featured({ projects }: FeaturedProps) {
 
               {/* Project Image */}
               <div
-                className={`relative z-[1] col-span-12 h-full ${
-                  isOdd ? 'md:col-start-5 md:col-end-13' : 'md:col-start-1 md:col-end-9'
-                } row-start-1 opacity-25 md:opacity-100`}
+                className={`relative z-[1] col-span-12 md:col-span-6 h-full ${
+                  isOdd ? 'md:col-start-1 md:col-end-7' : 'md:col-start-7 md:col-end-13'
+                } row-start-1`}
               >
-                <a href={external || github || '#'} className="block relative w-full h-full rounded-[var(--border-radius)] overflow-hidden bg-green group transition-all duration-300">
-                  <div className="absolute inset-0 bg-navy mix-blend-screen z-10 transition-opacity duration-300 group-hover:opacity-0" />
+                <a href={external || github || '#'} className="block relative w-full h-full rounded-[var(--border-radius)] overflow-hidden bg-green group">
+                  <div className="absolute inset-0 bg-[var(--navy)] opacity-20 z-10 transition-opacity duration-300 group-hover:opacity-0" />
                   <Image
                     src={cover}
                     alt={title}
-                    width={700}
-                    height={400}
-                    className="object-cover w-full h-full mix-blend-multiply filter grayscale contrast-100 brightness-50 md:brightness-90 transition-all duration-300 group-hover:filter-none group-hover:mix-blend-normal group-hover:brightness-100"
+                    width={600}
+                    height={300}
+                    className="object-cover w-full h-full mix-blend-multiply filter grayscale contrast-[1] brightness-[90%] transition-all duration-300 group-hover:filter-none group-hover:mix-blend-normal group-hover:brightness-100"
                   />
                 </a>
               </div>
