@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
+// Keep local fonts for backward compatibility
 const calibre = localFont({
   src: [
     {
@@ -39,6 +41,21 @@ const sfMono = localFont({
   ],
   variable: "--font-sf-mono",
   display: "swap",
+});
+
+// New distinctive fonts from Google Fonts (frontend-design skill guidelines)
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -81,7 +98,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${calibre.variable} ${sfMono.variable}`}>
+    <html lang="en" className={`${calibre.variable} ${sfMono.variable} ${plusJakartaSans.variable} ${spaceGrotesk.variable}`}>
       <body>
         <a className="skip-to-content" href="#content">
           Skip to Content
