@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
+import { Syne, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 // Keep local fonts for backward compatibility
@@ -43,19 +43,26 @@ const sfMono = localFont({
   display: "swap",
 });
 
-// New distinctive fonts from Google Fonts (frontend-design skill guidelines)
-const plusJakartaSans = Plus_Jakarta_Sans({
+// Bold, distinctive fonts for Neo-Brutalist Editorial aesthetic
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
   weight: ["400", "500", "600", "700"],
 });
 
-const spaceGrotesk = Space_Grotesk({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-mono",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -98,7 +105,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${calibre.variable} ${sfMono.variable} ${plusJakartaSans.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${calibre.variable} ${sfMono.variable} ${syne.variable} ${manrope.variable} ${jetbrainsMono.variable}`}>
       <body>
         <a className="skip-to-content" href="#content">
           Skip to Content
