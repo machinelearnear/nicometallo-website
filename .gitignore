@@ -42,7 +42,6 @@ yarn-error.log*
 *.tsbuildinfo
 
 # Tooling
-.beads
 .husky
 .opencode
 .sisyphus
