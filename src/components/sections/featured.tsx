@@ -45,15 +45,16 @@ export default function Featured({ projects }: FeaturedProps) {
                   isOdd ? 'md:col-start-7 md:text-left' : 'md:col-start-1 md:text-right'
                 } row-start-1 px-0 py-8 md:p-0`}
               >
-                <p className="mb-2.5 text-green font-mono text-[13px] font-normal">Featured Project</p>
-                <h3 className="mb-5 text-[clamp(24px,5vw,28px)] text-white md:text-lightest-slate hover:text-green transition-colors">
+                <p className="mb-2.5 font-mono text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--coral)' }}>Featured Project</p>
+                <h3 className="mb-5 font-display text-[clamp(24px,5vw,28px)] font-bold hover:text-coral transition-colors" style={{ color: 'var(--warm-white)' }}>
                   <a href={external} target="_blank" rel="noreferrer">
                     {title}
                   </a>
                 </h3>
 
                 <div
-                  className="relative z-[2] p-5 md:p-[25px] rounded-[var(--border-radius)] bg-[var(--light-navy)] text-[var(--light-slate)] text-[17px] leading-[1.6] shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] styled-list"
+                  className="relative z-[2] p-5 md:p-[25px] rounded-[var(--border-radius)] bg-[var(--charcoal-lighter)] font-sans text-[17px] leading-[1.6] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.7)] styled-list"
+                  style={{ color: 'var(--warm-gray)' }}
                   dangerouslySetInnerHTML={{ __html: project.content }}
                 />
 
@@ -62,7 +63,8 @@ export default function Featured({ projects }: FeaturedProps) {
                     {tech.map((t: string, j: number) => (
                       <li
                         key={j}
-                        className="text-[var(--light-slate)] font-mono text-[13px] m-0"
+                        className="font-mono text-xs font-medium m-0"
+                        style={{ color: 'var(--warm-gray)' }}
                       >
                         {t}
                       </li>

@@ -31,16 +31,16 @@ export default function Footer() {
         </ul>
       </div>
 
-      <div tabIndex={-1} className="text-light-slate font-mono text-xxs leading-none">
+      <div tabIndex={-1} className="font-mono text-xs leading-none" style={{ color: 'var(--warm-gray)' }}>
         <a
           href="https://github.com/bchiang7/v4"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 inline-block hover:text-green transition-all duration-300"
+          className="p-2 inline-block hover:text-coral transition-all duration-300"
         >
           <div className="flex items-center justify-center gap-1">
             <span>Built with</span>
-            <span className="text-pink">❤</span>
+            <span style={{ color: 'var(--coral)' }}>❤</span>
             <span>&</span>
             <span>🧉</span>
           </div>

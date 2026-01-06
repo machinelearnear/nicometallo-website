@@ -7,7 +7,7 @@ import { usePrefersReducedMotion } from '@/hooks';
 
 const items = [
   <h1 key="1" className="font-mono text-[14px] md:text-[16px] mb-4 tracking-[0.15em] uppercase font-bold" style={{ color: 'var(--coral)' }}>
-    Hola, my name is
+    Hola! My name is
   </h1>,
   <h2 key="2" className="big-heading font-black tracking-tight relative inline-block" style={{
     color: 'var(--warm-white)',
@@ -19,13 +19,15 @@ const items = [
     I like to build things with data.
   </h3>,
   <p key="4" className="mt-8 max-w-[540px] text-lg md:text-xl leading-relaxed" style={{ color: 'var(--warm-gray)' }}>
-    Un pibe del conurbano que anda de ciudad en ciudad.{' '}
-    <span className="inline-flex items-center gap-1 font-semibold" style={{ color: 'var(--warm-white)' }}>
-      <span role="img" aria-label="Argentina">🇦🇷</span> in <span role="img" aria-label="United Kingdom">🇬🇧</span>
-    </span>
-    {' '}/ Machine Learning at{' '}
-    <a href="https://aws.amazon.com/" target="_blank" rel="noreferrer" className="inline-link">Amazon</a>{' '}
-    / Opinions are my own / Sharing what I learn on{' '}
+    Originally from{' '}
+    <a href="https://es.wikipedia.org/wiki/Club_Deportivo_Mor%C3%B3n" target="_blank" rel="noreferrer" className="inline-link">Morón</a>,
+    but currently based in Madrid (prev{' '}
+    <span role="img" aria-label="United Kingdom">🇬🇧</span>
+    ). Used to run Sovereign AI @{' '}
+    <a href="https://aws.amazon.com/" target="_blank" rel="noreferrer" className="inline-link">AWS</a>.
+    Currently building Agentic AI apps @{' '}
+    <a href="https://www.sgs.com/" target="_blank" rel="noreferrer" className="inline-link">SGS</a>.
+    Occasionally I also share my thoughts on{' '}
     <a href="https://www.youtube.com/@machinelearnear" target="_blank" rel="noreferrer" className="inline-link">YouTube</a>.
   </p>,
   <a

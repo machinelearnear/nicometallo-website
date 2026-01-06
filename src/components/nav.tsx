@@ -89,9 +89,10 @@ export default function Nav({ isHome = false }: NavProps) {
               >
                 <Link
                   href={url}
-                  className="px-3 py-2 text-xs text-light-slate hover:text-green transition-colors"
+                  className="px-3 py-2 text-sm font-sans font-medium hover:text-coral transition-colors"
+                  style={{ color: 'var(--warm-gray)' }}
                 >
-                  <span className="text-green font-mono text-xs">0{i + 1}.</span>
+                  <span className="font-mono text-xs font-bold" style={{ color: 'var(--coral)' }}>0{i + 1}.</span>
                   {name}
                 </Link>
               </motion.li>
@@ -146,16 +147,17 @@ export default function Nav({ isHome = false }: NavProps) {
               exit={{ opacity: 0, x: '100%' }}
               transition={{ duration: 0.3 }}
             >
-              <nav className="flex flex-col items-center gap-8 font-mono text-lg">
+              <nav className="flex flex-col items-center gap-8 font-sans text-lg">
                 {navLinks.map(({ url, name }, i) => (
                   <Link
                     key={i}
                     href={url}
-                    className="text-lightest-slate hover:text-green transition-colors relative"
+                    className="hover:text-coral transition-colors relative"
+                    style={{ color: 'var(--warm-white)' }}
                   >
                     <div className="flex flex-col items-center">
-                      <span className="text-green font-mono text-sm mb-1">0{i + 1}.</span>
-                      <span>{name}</span>
+                      <span className="font-mono text-sm font-bold mb-1" style={{ color: 'var(--coral)' }}>0{i + 1}.</span>
+                      <span className="font-semibold">{name}</span>
                     </div>
                   </Link>
                 ))}

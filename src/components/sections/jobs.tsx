@@ -79,11 +79,15 @@ export default function Jobs({ jobs }: JobsProps) {
                 ref={(el) => {
                   if (el) tabsRef.current[i] = el;
                 }}
-                className={`flex items-center justify-center md:justify-start min-w-[120px] md:min-w-0 w-full md:w-[var(--tab-width)] h-[var(--tab-height)] px-5 py-0 border-b-2 md:border-b-0 md:border-l-2 border-lightest-navy/50 bg-transparent text-xs font-mono whitespace-nowrap transition-all duration-300 ${
-                  activeTabId === i 
-                    ? 'text-green bg-green/5 border-green' 
-                    : 'text-slate hover:text-green hover:bg-light-navy/50'
-                } focus:outline-none`}
+                className={`flex items-center justify-center md:justify-start min-w-[120px] md:min-w-0 w-full md:w-[var(--tab-width)] h-[var(--tab-height)] px-5 py-0 border-b-2 md:border-b-0 md:border-l-3 bg-transparent text-sm font-mono font-semibold whitespace-nowrap transition-all duration-200 focus:outline-none ${
+                  activeTabId === i
+                    ? 'border-coral'
+                    : 'border-charcoal-lightest hover:border-coral/50'
+                }`}
+                style={{
+                  color: activeTabId === i ? 'var(--coral)' : 'var(--warm-gray)',
+                  backgroundColor: activeTabId === i ? 'var(--coral-tint)' : 'transparent',
+                }}
                 onClick={() => setActiveTabId(i)}
                 role="tab"
                 aria-selected={activeTabId === i}
@@ -122,9 +126,9 @@ export default function Jobs({ jobs }: JobsProps) {
                   tabIndex={0}
                   aria-labelledby={`tab-${i}`}
                 >
-                  <h3 className="mb-0.5 text-[clamp(22px,5vw,var(--fz-xxl))] font-medium leading-[1.3] text-lightest-slate">
-                    <span className="text-green">{job.title}</span>
-                    <span className="text-green">
+                  <h3 className="mb-2 font-display text-[clamp(22px,5vw,26px)] font-bold leading-[1.2]" style={{ color: 'var(--warm-white)' }}>
+                    <span style={{ color: 'var(--coral)' }}>{job.title}</span>
+                    <span style={{ color: 'var(--warm-gray)' }}>
                       {' @ '}
                       <a href={job.url} className="inline-link" target="_blank" rel="noreferrer">
                         {job.company}
@@ -132,12 +136,13 @@ export default function Jobs({ jobs }: JobsProps) {
                     </span>
                   </h3>
 
-                  <p className="mb-[25px] text-light-slate font-mono text-xs">
+                  <p className="mb-6 font-mono text-sm font-medium tracking-wider" style={{ color: 'var(--warm-gray)' }}>
                     {job.range}
                   </p>
 
                   <div
-                    className="text-light-slate text-[clamp(var(--fz-lg),3vw,var(--fz-xl))] leading-[1.3] styled-list"
+                    className="font-sans text-[clamp(16px,3vw,18px)] leading-[1.6] styled-list"
+                    style={{ color: 'var(--warm-gray)' }}
                     dangerouslySetInnerHTML={{ __html: job.content }}
                   />
                 </motion.div>

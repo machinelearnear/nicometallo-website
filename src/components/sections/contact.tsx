@@ -11,18 +11,23 @@ export default function Contact() {
   return (
     <section id="contact" className="max-w-[600px] mx-auto mb-[100px] text-center">
       <motion.p
-        className="flex items-center justify-center gap-2 mb-5 text-green font-mono text-[clamp(var(--fz-md),3vw,var(--fz-xl))] font-normal"
+        className="flex items-center justify-center gap-2 mb-5 font-mono text-base font-bold uppercase tracking-widest"
+        style={{ color: 'var(--coral)' }}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <span className="opacity-90">04.</span>
+        <span>04.</span>
         <span>What&apos;s Next?</span>
       </motion.p>
 
       <motion.h2
-        className="mb-6 text-[clamp(40px,5vw,60px)] text-lightest-slate font-semibold leading-tight"
+        className="mb-6 font-display text-[clamp(40px,5vw,64px)] font-black leading-[1.1]"
+        style={{
+          color: 'var(--warm-white)',
+          textShadow: '3px 3px 0 var(--coral), 6px 6px 0 rgba(0, 217, 255, 0.3)'
+        }}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -32,7 +37,8 @@ export default function Contact() {
       </motion.h2>
 
       <motion.p
-        className="mb-10 text-light-slate text-[clamp(var(--fz-lg),3vw,var(--fz-xl))] leading-[1.3]"
+        className="mb-10 font-sans text-[clamp(17px,3vw,19px)] leading-[1.6]"
+        style={{ color: 'var(--warm-gray)' }}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
