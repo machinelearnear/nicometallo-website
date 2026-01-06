@@ -176,14 +176,18 @@ git push                                 # Push to remote
 - Tailwind CSS for styling (replacing styled-components)
 - shadcn/ui for reusable components
 - Static site generation (SSG) for performance
-- Maintain identical visual design and interactions
+- Distinctive, production-grade frontend design following frontend-design skill guidelines
+- Typography: Use distinctive, characterful fonts (avoid generic fonts like Arial/Inter)
+- Color & Theme: Cohesive aesthetic with dominant colors and sharp accents
+- Motion: Staggered reveals, scroll-triggering, hover states that surprise
+- Spatial Composition: Unexpected layouts, asymmetry, overlap, diagonal flow, generous negative space
+- Backgrounds & Visual Details: Gradient meshes, noise textures, geometric patterns, shadows, borders
 - Preserve all content (jobs, projects, posts)
 
 ### Non-Goals
 
-- Redesigning the visual appearance
 - Changing the site structure or navigation
-- Adding new features (focus on 1:1 migration)
+- Adding fundamentally new features that change the site's purpose
 
 ---
 
@@ -564,9 +568,8 @@ interface Post {
 
 ## Session Handoff Notes
 
-> **Last Updated**: 2025-12-31
-> **Last Phase Completed**: Phase 7 (Polish & Verification) - Complete
-> **Current Status**: ✅ **MIGRATION COMPLETE** - All phases finished. Build passes. Ready for deployment.
+> **Last Updated**: 2026-01-06
+> **Current Status**: 🚀 **REDESIGN PHASE** - Migration complete. Now applying frontend-design skill guidelines to create distinctive, production-grade frontend with characterful typography, cohesive colors, and refined motion/spatial composition.
 >
 > **IMPORTANT**: Use Beads for progress tracking. Run `bd ready` to see what needs doing.
 
@@ -666,16 +669,17 @@ bd sync
 
 ### What's Next
 
-**Deployment & Final Verification**
+**Redesign & Enhancement Phase**
 
-The migration is complete. Remaining tasks require live deployment:
+The migration is complete. Now applying frontend-design skill guidelines:
 
-1. Deploy to production (Vercel, Netlify, etc.)
-2. Lighthouse audit (performance, accessibility) on live site
-3. Visual comparison with original Brittany Chiang site
-4. Monitor for any runtime issues
+1. Typography: Replace generic fonts with distinctive characterful choices
+2. Color & Theme: Commit to cohesive aesthetic with dominant colors and sharp accents
+3. Motion: Refine animations with staggered reveals, scroll-triggering, hover states
+4. Spatial Composition: Unexpected layouts, asymmetry, diagonal flow, generous negative space
+5. Backgrounds & Visual Details: Gradient meshes, noise textures, geometric patterns, shadows, borders
 
-All development work is complete. The site is ready for deployment.
+All development work is complete. The site is ready for enhancement.
 
 ### Critical Technical Notes
 
@@ -706,9 +710,9 @@ All development work is complete. The site is ready for deployment.
 1. **Original attribution**: This is a fork of Brittany Chiang's v4 site. Keep attribution in README.
 2. **Font licensing**: Calibre and SF Mono fonts are in `src/fonts/`. Ensure proper licensing.
 3. **Content**: All content is markdown in `/content`. Structure must be preserved.
-4. **Visual parity**: The goal is pixel-perfect migration, not redesign.
-5. **scrollreveal**: The original uses scrollreveal library. Replace with framer-motion.
-6. **anime.js**: Used for loader animation. Replace with framer-motion or CSS animations.
+4. **scrollreveal**: The original uses scrollreveal library. Replace with framer-motion.
+5. **anime.js**: Used for loader animation. Replace with framer-motion or CSS animations.
+6. **Design direction**: Follow frontend-design skill for typography, color, motion, spatial composition, and visual details. Avoid generic AI aesthetics.
 
 ### Config Values (Inlined in Components)
 
