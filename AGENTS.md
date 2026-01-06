@@ -7,15 +7,14 @@
 ## Table of Contents
 
 1. [Oh My OpenCode Agents](#oh-my-opencode-agents)
-2. [Beads Progress Tracking](#beads-progress-tracking)
-3. [Project Overview](#project-overview)
-4. [Current Architecture (Gatsby)](#current-architecture-gatsby)
-5. [Target Architecture (Next.js 15)](#target-architecture-nextjs-15)
-6. [Design System](#design-system)
-7. [Content Schema](#content-schema)
-8. [Component Mapping](#component-mapping)
-9. [Migration Tasks](#migration-tasks)
-10. [Session Handoff Notes](#session-handoff-notes)
+2. [Project Overview](#project-overview)
+3. [Current Architecture (Gatsby)](#current-architecture-gatsby)
+4. [Target Architecture (Next.js 15)](#target-architecture-nextjs-15)
+5. [Design System](#design-system)
+6. [Content Schema](#content-schema)
+7. [Component Mapping](#component-mapping)
+8. [Migration Tasks](#migration-tasks)
+9. [Session Handoff Notes](#session-handoff-notes)
 
 ---
 
@@ -76,89 +75,6 @@ Agents are configured in `~/.config/opencode/oh-my-opencode.json`:
 background_task(agent="librarian", prompt="Research React Server Components documentation")
 background_task(agent="explore", prompt="Find all API route files in src/app")
 background_task(agent="oracle", prompt="Review my component architecture and suggest improvements")
-```
-
-### Workflow
-
-1. **Sisyphus** receives the task and checks **Beads** for ready issues (`bd ready`)
-2. Sisyphus creates a todo list and delegates to specialized agents (background execution)
-3. Results are synthesized and verified
-4. **Issues are updated in Beads** for tracking
-5. Changes are committed and pushed
-
----
-
-## Beads Progress Tracking
-
-**Beads** is the Git-native issue tracker for this project. It stores issues as markdown files in `.beads/`, version-controlled alongside your code.
-
-### Why Beads?
-
-- **Context-free resume**: New sessions recover state via `bd` commands
-- **Git-native**: Issues tracked in git, no external service needed
-- **Phase-based**: Organize work into phases (0-9) with priority
-- **Atomic**: Each issue = one discrete task with clear status
-
-### Quick Start
-
-```bash
-# See what needs doing
-bd ready
-
-# View specific task
-bd show <issue-id>
-
-# Sync progress with git
-bd sync
-```
-
-### Session Continuity Protocol
-
-**Starting a new session:**
-```bash
-bd ready      # List tasks with no blockers
-bd sync       # Sync with git
-# Pick highest-priority task, set status to "in_progress"
-```
-
-**Before context exhaustion:**
-```bash
-bd update <issue-id> --status complete  # Mark done
-bd create "Next task" -p 1              # Create follow-up
-bd sync                                   # Persist state
-git add -A && git commit -m "feat: complete task"
-git push                                 # Push to remote
-```
-
-### Beads Commands
-
-| Command | Description |
-|---------|-------------|
-| `bd create "Task" -p <phase>` | Create new issue |
-| `bd ready` | List ready tasks (no blockers) |
-| `bd show <id>` | Show issue details |
-| `bd update <id> --status <status>` | Update status |
-| `bd sync` | Sync with git |
-
-### Status Values
-
-- `pending` - Not started
-- `ready` - Ready to work
-- `in_progress` - Currently working
-- `complete` - Finished
-- `cancelled` - No longer needed
-
-### File Structure
-
-```
-.beads/
-├── config.yaml         # Beads configuration
-├── metadata.json       # Project metadata
-├── interactions.jsonl  # Interaction log
-└── issues/             # Individual issues (markdown)
-    ├── bd-001.md
-    ├── bd-002.md
-    └── ...
 ```
 
 ---
@@ -570,23 +486,6 @@ interface Post {
 
 > **Last Updated**: 2026-01-06
 > **Current Status**: 🚀 **REDESIGN PHASE** - Migration complete. Now applying frontend-design skill guidelines to create distinctive, production-grade frontend with characterful typography, cohesive colors, and refined motion/spatial composition.
->
-> **IMPORTANT**: Use Beads for progress tracking. Run `bd ready` to see what needs doing.
-
-### Beads Issues for This Project
-
-All remaining work is tracked in Beads. Run these commands to continue:
-
-```bash
-# See what needs to be done
-bd ready
-
-# View a specific task
-bd show <issue-id>
-
-# Sync with git after status changes
-bd sync
-```
 
 ### What's Done
 
@@ -770,30 +669,25 @@ Once migration is complete and verified:
 
 ---
 
-*This document should be updated after each work session with progress and notes.*
-
 ## Landing the Plane (Session Completion)
 
 **When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until `git push` succeeds.
 
 **MANDATORY WORKFLOW:**
 
-1. **Update Beads issues for remaining work** - Mark completed tasks, create new issues
-2. **Run quality gates** (if code changed) - Tests, linters, builds
-3. **Sync Beads with git** - This is your progress checkpoint:
+1. **Run quality gates** (if code changed) - Tests, linters, builds
+2. **Commit and push to git**:
    ```bash
-   bd sync
    git add -A && git commit -m "feat: describe completed work"
    ```
-4. **PUSH TO REMOTE** - This is MANDATORY:
+3. **PUSH TO REMOTE** - This is MANDATORY:
    ```bash
    git pull --rebase
    git push
    git status  # MUST show "up to date with origin"
    ```
-5. **Clean up** - Clear stashes, prune remote branches
-6. **Verify** - All changes committed AND pushed
-7. **Hand off** - Via Beads (next session runs `bd ready`)
+4. **Clean up** - Clear stashes, prune remote branches
+5. **Verify** - All changes committed AND pushed
 
 **CRITICAL RULES:**
 - Work is NOT complete until `git push` succeeds
