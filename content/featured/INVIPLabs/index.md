@@ -11,6 +11,4 @@ tech:
   - Python
 ---
 
-A social startup that helps blind and low-vision individuals interpret their environment using computer vision and voice interfaces. Built the complete tech stack from hardware devices to cloud infrastructure.
-
-Raised $25K in non-dilutive funding and won multiple awards including NYU InnoVention, NYU Summer Launchpad, NYU I-Corps, and Futureworks NYC.
+Social startup helping blind individuals interpret their environment using computer vision and voice interfaces. Built full tech stack from hardware to cloud. Raised $25K funding and won multiple awards.
